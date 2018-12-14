@@ -11,7 +11,7 @@ sentientbot_id = None
 
 # constants
 RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
-EXAMPLE_COMMAND = "do"
+EXAMPLE_COMMAND = "chad"
 MENTION_REGEX = "^<@(|[WU].+?)>(.*)"
 
 def parse_bot_commands(slack_events):
@@ -46,9 +46,12 @@ def handle_command(command, channel):
     # Finds and executes the given command, filling in response
     response = None
     # This is where you start to implement more commands!
-    if command.startswith(EXAMPLE_COMMAND):
-        response = "Sure...write some more code then I can do that!"
-
+    if command.startswith('chad'):
+        response = "hey there chad bot. lets take over the world. punch peper for me."
+    elif command.startswith('me'):
+        response = 'Made you look'
+    else:
+        response = "I'm lazy"
     # Sends the response back to the channel
     slack_client.api_call(
         "chat.postMessage",
